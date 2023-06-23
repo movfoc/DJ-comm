@@ -12,7 +12,7 @@
         </div>
         <div>
 			<h3 class="text-center">Send today's Record</h3>
-			<input type="text" id="newName" style="background-color:#c9b873;" onkeyup="EnableDisable(this)">
+			<input type="text" id="Records" style="background-color:#c9b873;" onkeyup="EnableDisable(this)">
 			<button
 			id="setName"
 			onclick="setUserName()"
@@ -21,6 +21,8 @@
 			>
 			NFT Record
 			</button>
+            <h3 class="text-center">Send today's Total</h3>
+            <input type="text" id="TotalNum" style="background-color:#c9b873;" onkeyup="EnableDisable(this)">
 			<button
 			id="getName"
 			onclick="getUserName()"
@@ -1834,6 +1836,7 @@
                                 "type": "function"
                             }
                         ];
+            const CONTRACT_ADDRESS = "0xc6Cd863A78D2137E0c5a881FD6920c36AE959eC3";
             (async () => {
                 if (window.ethereum) {
                 await window.ethereum.send('eth_requestAccounts');
@@ -1843,7 +1846,7 @@
                 account = accounts[0];
                 document.getElementById('wallet-address').textContent = account;
 
-                contract = new web3.eth.Contract(ABI, ADDRESS);
+                contract = new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
                 }
             })();
         </script>
